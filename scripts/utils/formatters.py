@@ -88,11 +88,11 @@ def get_default_drafts_root() -> str:
                 )
             )
 
+        # 兜底：按当前登录用户推测，不写死用户名
         fallback = os.path.join(
-            "C:",
-            os.sep,
+            os.environ.get("SystemDrive", "C:") + os.sep,
             "Users",
-            "Administrator",
+            os.environ.get("USERNAME", ""),
             "AppData",
             "Local",
             "JianyingPro",

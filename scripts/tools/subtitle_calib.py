@@ -3,7 +3,12 @@
 
 4 条字幕**同一时段同时显示**、位置错开，一次截图即可读出
 4 组 (size, transform_y) → (像素高度, 像素中心y)。
+
+用法:
+    python subtitle_calib.py                        # 纯黑底（测量最准）
+    python subtitle_calib.py --palette <视频路径>    # 用指定视频当底
 """
+import argparse
 import os
 import sys
 
@@ -30,16 +35,22 @@ CASES = [
     (15.0, 0.70),
 ]
 
+_ap = argparse.ArgumentParser(description="生成字幕标定草稿")
+_ap.add_argument("--palette", default=os.environ.get("JY_CALIB_PALETTE"),
+                 help="可选：垫底视频路径。不指定则用纯黑画布（测白字更准）")
+_args = _ap.parse_args()
+
 name = "ZZ_SUB_CALIB"
 p = JyProject(name, width=W, height=H, overwrite=True)
 p.script.fps = FPS
 
-palette = os.path.join(r"E:\埠威资料\处理过的N1素材", "05 灯光", "02.mp4")
-if os.path.exists(palette):
-    p.add_media_safe(palette, "0us", duration="5s", track_name="VideoTrack")
+if _args.palette and os.path.exists(_args.palette):
+    p.add_media_safe(_args.palette, "0us", duration="5s", track_name="VideoTrack")
     print("  垫底视频已加")
+elif _args.palette:
+    print(f"  ⚠ 垫底视频不存在，改用纯黑画布: {_args.palette}")
 else:
-    print("  ⚠ 无垫底视频")
+    print("  使用纯黑画布（不垫底）")
 
 for i, (size, ty) in enumerate(CASES):
     try:
