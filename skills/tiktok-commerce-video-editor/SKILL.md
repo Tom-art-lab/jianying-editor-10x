@@ -36,6 +36,7 @@ python scripts/validate_profile.py path/to/project-profile.json
 - Keep every available source-audio stream on its original timeline. Creator audio has priority; retain useful operation and ambient sound underneath narration.
 - Write copy and narration in the project language and make each line describe the shot it accompanies. Keep button instructions truthful and use the project's exact wording.
 - Composite captions last. Use one stable readable style per video, at most two lines, and the project's publish-safe region. A caption must disappear at its own end time; never leave stale text on the next shot.
+- Keep chapter or feature typography slightly to the right within the safe area when the left edge is likely to be covered by platform UI; verify the full glyph bounds at publish size.
 - Create motion graphics from shot semantics. Vary chapter typography, reveals, camera motion, light hits, transitions, and decorative density across a batch. Do not reuse a rejected style, opaque black panels, cheap stickers, or tiny unreadable labels.
 - Keep every graphic outside faces, hands, products, important actions, captions, and platform controls. Never place a major graphic in a platform-obscured lower area unless the profile explicitly marks it safe.
 - Use a normal, high-contrast shopping CTA arrow only when the profile requests one. It must have a thick shaft, a clear triangular head, an accurate target, and a visible animation without covering captions or controls.
