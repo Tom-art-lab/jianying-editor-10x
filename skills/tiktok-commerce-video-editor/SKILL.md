@@ -51,11 +51,18 @@ Do not claim that every model has the same tool access. If a host lacks video re
 
 ## Export backends
 
-Use this order for final delivery:
+Use this dual-delivery contract whenever the host can access local media tools:
+
+- **Direct deliverable:** render a verified final MP4 through local FFmpeg/FFprobe, like the Codex workflow.
+- **Editable deliverable:** also create a JianYing project/draft with the same timeline, source media, captions, audio, transitions, and motion graphics, so the creator can open it in JianYing and adjust or export manually.
+
+The MP4 and JianYing project are two outputs of the same edit decision list; do not create them with different shot orders, timings, or copy. Keep the project file in a separate work/project location and keep the delivery directory limited to publishable MP4 files unless the creator asks for the project alongside them.
+
+Use this order for rendering:
 
 1. Prefer a local FFmpeg/FFprobe render when the host can execute local commands. This produces the final MP4 directly and works independently of the JianYing 10.x QML export interface.
-2. If the host editor can export reliably, use its native exporter and still run the same decode, specification, audio, safe-area, ending, and uniqueness checks.
-3. If neither local rendering nor an editor exporter is available, do not claim that an MP4 was exported. Return the prepared project/timeline and state which local adapter is missing.
+2. Create or save the matching JianYing project/draft for manual editing or export. On JianYing 10.x, do not claim that its native export was automated.
+3. If local FFmpeg rendering is unavailable, do not claim that an MP4 was exported. Return the prepared JianYing project/timeline and state which local adapter is missing.
 
 Before rendering, detect `ffmpeg` and `ffprobe`, record their paths and versions, use a temporary work directory, and write only verified final MP4 files to the delivery directory. Keep the original footage, source audio, and previous deliveries untouched. The export route is an implementation detail; it must not alter the approved shot order, native speed, captions, motion graphics, transitions, or audio mix.
 

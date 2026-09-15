@@ -17,6 +17,9 @@ DeepSeek、GLM、Kimi 或其他能读取 Skill 并调用本地媒体工具的模
 和作出剪辑决策，FFmpeg 或剪映负责确定性渲染；缺少对应模型或工具适配器时会明确报告，
 不会暗中改变剪辑规则。
 
+每次本地工具可用时，交付会同时包含：一份 FFmpeg 直接渲染的可发布 MP4，以及一份匹配的剪映工程文件。
+MP4 可直接查看和发布，剪映工程可打开后继续修改或手动导出；两者使用同一套时间线和素材规则。
+
 ```bash
 python skills/tiktok-commerce-video-editor/scripts/validate_profile.py \
   examples/project-profile.example.json
