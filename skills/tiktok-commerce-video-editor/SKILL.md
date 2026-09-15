@@ -7,11 +7,24 @@ description: Create localized short-form commerce videos from a user-supplied pr
 
 Use this skill when a user asks to turn product footage, creator footage, voiceover, music, or reference videos into publishable short-form commerce edits.
 
+## First run: ask in the conversation
+
+Do not make a first-time creator edit JSON by hand. At the start of the first editing request, ask one short question:
+
+> 背景音乐怎么处理？
+> 1. 使用音乐（我会在桌面创建一个项目音乐文件夹，请把音乐放进去）
+> 2. 使用我现在拖入对话框的音乐文件
+> 3. 跳过配乐
+
+If the creator chooses option 1, create a clearly named folder on the Desktop, such as `项目名_音乐素材`, tell the creator its exact path, wait for the files to be supplied, then scan only that folder. If the creator chooses option 2, use only the attached files. If the creator chooses option 3, render without background music and record `music_policy: skip`. For later edits in the same project, reuse the recorded choice unless the creator changes it. Never silently select a default library track.
+
+The project profile and JSON validator are advanced paths for repeatable teams and automation. They are optional for ordinary creators; the conversation answers should be converted into the profile by the host.
+
 ## Product and order are always project data
 
 Never assume the product, language, market, feature names, shot roles, or shot order from this skill. Read the project profile first. If a profile is missing, infer only what the supplied footage proves and ask for the missing order when changing it could alter the edit. A project may define any number of roles and any valid order; N1 is an example profile, not a default.
 
-Profile fields and the validation contract are documented in [references/project-profile.md](references/project-profile.md). Validate a profile before rendering:
+Never require a creator to edit JSON for a normal first edit. Profile fields and the validation contract are documented in [references/project-profile.md](references/project-profile.md). Validate a generated profile before rendering:
 
 ```text
 python scripts/validate_profile.py path/to/project-profile.json

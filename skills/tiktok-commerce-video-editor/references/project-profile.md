@@ -1,6 +1,6 @@
 # Project profile
 
-The profile is project data, not a global rule. Replace every example value before production.
+The profile is project data, not a global rule. Replace every example value before production. Ordinary creators do not need to edit this file: the host should generate it from the first-run conversation.
 
 Required shape:
 

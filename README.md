@@ -24,6 +24,10 @@ python skills/tiktok-commerce-video-editor/scripts/validate_profile.py \
 
 完整说明见 [`skills/tiktok-commerce-video-editor/SKILL.md`](skills/tiktok-commerce-video-editor/SKILL.md)。
 
+普通创作者第一次使用不需要修改 JSON。Skill 会在对话中询问是否使用音乐：选择使用时，
+自动在桌面创建并告知项目音乐文件夹；也可以直接把音乐文件拖入对话框，或选择跳过配乐。
+JSON 项目档案只用于团队批量生产和高级自动化。
+
 
 支持主流 AI 编辑器：Antigravity / Trae / Claude Code / Cursor / **Codex** / WorkBuddy。
 
