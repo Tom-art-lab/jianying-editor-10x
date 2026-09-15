@@ -32,6 +32,10 @@ def main(path):
     if cap.get('composite_last') is not True: fail('captions must be composited last')
     audio=data['audio']
     if audio.get('retain_source_audio') is not True: fail('retain_source_audio must be true')
+    if audio.get('music_policy') not in ('prompt_user_folder','skip','optional'):
+        fail('audio.music_policy must be prompt_user_folder, skip, or optional')
+    if audio.get('music_policy') != 'skip' and not isinstance(audio.get('music_dir'),str):
+        fail('audio.music_dir is required unless music_policy is skip')
     arrow=data.get('cta_arrow',{})
     if arrow.get('enabled'):
         shape=str(arrow.get('shape','')).lower()

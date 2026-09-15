@@ -12,7 +12,7 @@
   ],
   "allowed_orders": [["creator_intro", "feature_1", "feature_2", "close"], ["feature_1", "feature_2", "close"]],
   "caption": {"language": "id-ID", "max_lines": 2, "font_px": 50, "safe_rect": {"x": 200, "y": 1050, "w": 680, "h": 230}, "style": "white fill, black outline", "composite_last": true},
-  "audio": {"retain_source_audio": true, "creator_gain": 1.0, "footage_gain": 0.78, "music_duck_under_speech": true, "allow_music_excerpt": true},
+  "audio": {"retain_source_audio": true, "creator_gain": 1.0, "footage_gain": 0.78, "music_policy": "prompt_user_folder", "music_dir": "./music", "music_duck_under_speech": true, "allow_music_excerpt": true},
   "cta_arrow": {"enabled": true, "shape": "thick shaft and triangular head", "target": "platform cart icon", "avoid_rects": ["caption.safe_rect"]},
   "delivery": {"output_dir": "./delivery", "mp4_only": true, "preserve_originals": true, "clean_intermediates_after_qa": true}
 }
