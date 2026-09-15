@@ -5,6 +5,21 @@ description: 剪映 (JianYing) AI自动化剪辑的高级封装 API (JyWrapper)�
 
 # JianYing Editor Skill
 
+## 自动分流：TikTok 电商短视频
+
+当用户提出以下类型的请求时，先读取并执行
+[通用 TikTok 电商剪辑 Skill](skills/tiktok-commerce-video-editor/SKILL.md)：
+
+- 制作或批量制作 TikTok / TikTok Shop 带货视频
+- 需要商品展示、达人开场、卖点步骤、印尼语字幕、网感节奏、动态元素或带货收尾
+- 用户提供了商品素材、参考视频、参考动效或背景音乐，希望按内容完成短视频
+
+该子 Skill 是通用流程，不假设产品、素材顺序、语言、市场或音乐固定为某个项目。第一次剪辑时按对话流程询问音乐；不要要求普通创作者手动编辑 JSON。
+
+如果用户只是要求普通剪映剪辑、草稿生成、字幕、配音、转场或导出，不涉及 TikTok 电商带货，则继续使用本 Skill 后面的常规规则。
+
+安装本仓库后，两套能力会同时可用：本文件负责剪映底层编辑能力，子 Skill 负责通用 TikTok 电商成片流程。不要把子 Skill 的示例项目规则当作默认产品规则。
+
 Use this skill when the user wants to automate video editing, generate drafts, or manipulate media assets in JianYing Pro.
 
 Agent execution playbook: [docs/agent-playbook.md](docs/agent-playbook.md)
