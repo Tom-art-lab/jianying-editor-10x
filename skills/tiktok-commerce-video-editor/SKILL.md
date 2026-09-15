@@ -49,6 +49,16 @@ The skill is prompt-and-contract driven. Claude, Codex, Gemini, Grok, Hunyuan, D
 
 Do not claim that every model has the same tool access. If a host lacks video rendering, browser control, or a speech API, keep the profile and edit decision list portable and report the missing adapter instead of silently changing the creative contract.
 
+## Export backends
+
+Use this order for final delivery:
+
+1. Prefer a local FFmpeg/FFprobe render when the host can execute local commands. This produces the final MP4 directly and works independently of the JianYing 10.x QML export interface.
+2. If the host editor can export reliably, use its native exporter and still run the same decode, specification, audio, safe-area, ending, and uniqueness checks.
+3. If neither local rendering nor an editor exporter is available, do not claim that an MP4 was exported. Return the prepared project/timeline and state which local adapter is missing.
+
+Before rendering, detect `ffmpeg` and `ffprobe`, record their paths and versions, use a temporary work directory, and write only verified final MP4 files to the delivery directory. Keep the original footage, source audio, and previous deliveries untouched. The export route is an implementation detail; it must not alter the approved shot order, native speed, captions, motion graphics, transitions, or audio mix.
+
 ## Required delivery record
 
 Record the project profile version, source paths, order, caption timings, audio-retention flags, music title/artist/source/license evidence, music excerpt offset, motion-graphic style, output hash, and QA results. Never place API keys, cookies, private source files, or account credentials in the skill or repository.
