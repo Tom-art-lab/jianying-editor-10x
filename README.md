@@ -5,6 +5,24 @@
 
 这是一个能实现自动剪辑的 skill 项目。剪辑师只需用自然语言告诉 AI 你想做什么视频，它就能帮你完成从**写文案、配音、加字幕、选音乐、上特效到最终导出**的整套流程。
 
+### 可配置的 TikTok Commerce Video Editor
+
+仓库内新增 `skills/tiktok-commerce-video-editor`。它把短视频剪辑要求放在项目档案中，
+不会把某个用户的产品、素材角色、文案或素材顺序写死。每个项目可自定义产品事实、
+允许的镜头顺序、语言、字幕安全区、原声策略、音乐片段、购物车箭头和交付目录。
+
+它采用模型无关的 JSON 配置和验收协议，可被 Claude、Codex、Gemini、Grok、混元、
+DeepSeek、GLM、Kimi 或其他能读取 Skill 并调用本地媒体工具的模型使用。模型负责理解素材
+和作出剪辑决策，FFmpeg 或剪映负责确定性渲染；缺少对应模型或工具适配器时会明确报告，
+不会暗中改变剪辑规则。
+
+```bash
+python skills/tiktok-commerce-video-editor/scripts/validate_profile.py \
+  examples/project-profile.example.json
+```
+
+完整说明见 [`skills/tiktok-commerce-video-editor/SKILL.md`](skills/tiktok-commerce-video-editor/SKILL.md)。
+
 
 支持主流 AI 编辑器：Antigravity / Trae / Claude Code / Cursor / **Codex** / WorkBuddy。
 

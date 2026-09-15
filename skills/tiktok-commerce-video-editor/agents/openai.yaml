@@ -1,0 +1,4 @@
+interface:
+  display_name: TikTok Commerce Video Editor
+  short_description: Configurable, model-neutral short-form commerce video editing
+  default_prompt: Use the TikTok Commerce Video Editor skill with the supplied project profile and footage. Preserve source audio, use content-aware motion graphics, and run the profile QA checklist before delivery.
