@@ -31,6 +31,13 @@ JSON 项目档案只用于团队批量生产和高级自动化。
 
 支持主流 AI 编辑器：Antigravity / Trae / Claude Code / Cursor / **Codex** / WorkBuddy。
 
+### 统一安装与自动分流
+
+统一安装地址：<https://github.com/Tom-art-lab/jianying-editor-10x>。请安装或克隆整个仓库，
+不要只复制 `skills/tiktok-commerce-video-editor` 子目录。安装后，根目录的 `SKILL.md` 会自动分流：
+普通剪映任务使用基础能力，TikTok / TikTok Shop 带货任务自动读取通用电商剪辑 Skill。
+创作者只需用自然语言说明“帮我剪一条 TikTok 带货视频”，再提供素材即可；无需记忆子目录名称，也无需先编辑 JSON。
+
 ## 🚀 在新电脑上安装（三步）
 
 ```bash
